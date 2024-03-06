@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+/**Employee service class method logic*/
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -23,7 +24,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee create(Employee employee) {
         LOG.debug("Creating employee [{}]", employee);
 
+        /*Generate random UUID for employee id*/
         employee.setEmployeeId(UUID.randomUUID().toString());
+
+        /*Inserts employee into DB*/
         employeeRepository.insert(employee);
 
         return employee;
@@ -32,7 +36,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee read(String id) {
         LOG.debug("Creating employee with id [{}]", id);
-
         Employee employee = employeeRepository.findByEmployeeId(id);
 
         if (employee == null) {
@@ -49,7 +52,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.save(employee);
     }
 
+
     public int getNumberOfReports(String employeeId) {
+       /*Variable will store # of total reports*/
         int totalReports = 0;
 
 
@@ -58,7 +63,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new RuntimeException("Null employee!");
         }
 
+        /*Get direct reports from employee and store them in a list*/
         List<Employee> reports = employee.getDirectReports();
+
+        /*Using recursion we will pass each employee id from the reports list
+        through the getNumberOfReports method and add the
+         numberOfReports + 1 to the current totalReports integer */
         if (reports != null) {
             for (Employee reportingEmployee : reports) {
                 totalReports += 1 + getNumberOfReports(reportingEmployee.getEmployeeId());

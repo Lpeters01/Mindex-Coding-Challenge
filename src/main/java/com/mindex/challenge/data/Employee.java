@@ -4,10 +4,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import java.util.Collections;
 import java.util.List;
 
-
+/**Employee data model leveraging SpringBoot annotations to generate and achieve cleaner code*/
 @Getter
 @Setter
 @NoArgsConstructor

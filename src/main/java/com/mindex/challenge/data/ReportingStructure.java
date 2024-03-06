@@ -2,8 +2,8 @@ package com.mindex.challenge.data;
 
 import lombok.*;
 
-import java.util.Objects;
 
+/**ReportingStructure data model leveraging SpringBoot annotations to generate and achieve cleaner code*/
 @Getter
 @Setter
 @NoArgsConstructor

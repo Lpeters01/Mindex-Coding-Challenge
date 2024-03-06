@@ -3,10 +3,9 @@ package com.mindex.challenge.data;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
+/**Compensation data model leveraging SpringBoot annotations to generate and achieve cleaner code*/
 @Setter
 @Getter
 @NoArgsConstructor

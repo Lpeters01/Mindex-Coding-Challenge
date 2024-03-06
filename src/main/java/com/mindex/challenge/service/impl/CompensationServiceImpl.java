@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**Compensation service class method logic*/
 @Service
 public class CompensationServiceImpl implements CompensationService {
     private static final Logger LOG = LoggerFactory.getLogger(CompensationServiceImpl.class);
@@ -18,6 +19,9 @@ public class CompensationServiceImpl implements CompensationService {
     @Autowired
     private CompensationRepository compensationRepository;
 
+    /*Retrieve the passed emplyee id,
+    set the employee object to the previously found employee object,
+    then insert the compensation object into the compensation table */
     @Override
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating compensation [{}]", compensation);
@@ -28,6 +32,10 @@ public class CompensationServiceImpl implements CompensationService {
         return compensation;
     }
 
+    /*Retrieve id and store in employee object,
+    search for employee object in compensation table,
+    return compensation object
+     */
     @Override
     public Compensation read(String id) {
         LOG.debug("Reading compensation with id [{}]", id);
