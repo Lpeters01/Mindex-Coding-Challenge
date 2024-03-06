@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "61579397-76bc-4da4-b6fa-d7e10fa5a330",
+		"name": "Mindex-Coding-Challenge-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16083777"
+	},
+	"item": [
+		{
+			"name": "Inital CRUD Operations",
+			"item": [
+				{
+					"name": "Create Emp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"firstName\" : \"Landun\",\r\n    \"lastName\" : \"Peters\",\r\n    \"position\" : \"Development Manager\",\r\n    \"department\" : \"Engineering\",\r\n    \"directReports\" : [\r\n      {\r\n        \"employeeId\" : \"b7839309-3348-463b-a7e3-5de1c168beb3\"\r\n      },\r\n      {\r\n        \"employeeId\" : \"03aa1462-ffa9-4978-901b-7c001562cf6f\"\r\n      }\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Emp",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update Emp",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"employeeId\": \"409a9227-0250-4ce4-8761-58f5a584deff\",\r\n        \"firstName\": \"Landun\",\r\n        \"lastName\": \"Peters\",\r\n        \"position\": \"Development Manager\",\r\n        \"department\": \"Engineeringi\",\r\n        \"directReports\": [\r\n            {\r\n                \"employeeId\": \"b7839309-3348-463b-a7e3-5de1c168beb3\"\r\n            },\r\n            {\r\n                \"employeeId\": \"03aa1462-ffa9-4978-901b-7c001562cf6f\"\r\n              \r\n            }\r\n        ]\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employee/68fef886-40be-4f10-9220-771fa3ac0798",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employee",
+								"68fef886-40be-4f10-9220-771fa3ac0798"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 1",
+			"item": [
+				{
+					"name": "Retrieve numOfEmp",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reportingStructure/16a596ae-edd3-4847-99fe-c4518e82c86f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reportingStructure",
+								"16a596ae-edd3-4847-99fe-c4518e82c86f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 2",
+			"item": [
+				{
+					"name": "Create Compensation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee\": {\r\n        \"employeeId\": \"16a596ae-edd3-4847-99fe-c4518e82c86f\",\r\n        \"salary\": \"$276,000.00\",\r\n        \"effectiveDate\": \"13-01-2017 17:09:42\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/compensation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"compensation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Comp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/compensation/00a0c234-95c7-4f34-92dd-e307582a9fac",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"compensation",
+								"00a0c234-95c7-4f34-92dd-e307582a9fac"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
